@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Techla — Design System v0.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  /* ========================================================
+     TECHLA — DESIGN SYSTEM v0.1
+     "Chanel meets Linear" — premium escuro com alma editorial
+     ======================================================== */
+
+  :root {
+    /* Backgrounds */
+    --bg-base: #0A0A0B;
+    --bg-elevated: #131316;
+    --bg-overlay: #1C1C21;
+    --bg-deep: #050506;
+
+    /* Text */
+    --text-primary: #F5F4F0;
+    --text-secondary: #8B8B93;
+    --text-muted: rgba(245, 244, 240, 0.5);
+    --text-faint: rgba(245, 244, 240, 0.3);
+
+    /* Accents — a paleta sagrada */
+    --accent-primary: #D4A574;       /* rose-gold — CTA, highlights */
+    --accent-primary-hover: #E0B687; /* tom levemente mais claro no hover */
+    --accent-secondary: #F5B7B1;     /* rosé — mesh, glows, perdas */
+    --accent-success: #7DD3A8;       /* sage green — métricas positivas */
+
+    /* Borders */
+    --border-subtle: rgba(245, 244, 240, 0.06);
+    --border-default: rgba(245, 244, 240, 0.08);
+    --border-strong: rgba(212, 165, 116, 0.18);
+    --border-emphasis: rgba(212, 165, 116, 0.4);
+
+    /* Type */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-24: 96px;
+    --space-32: 128px;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 64px rgba(212, 165, 116, 0.2);
+    --shadow-mockup: 0 32px 96px rgba(0, 0, 0, 0.6), 0 0 120px rgba(212, 165, 116, 0.08);
+
+    /* Section */
+    --section-padding-y: clamp(80px, 12vh, 160px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: var(--accent-primary); color: var(--bg-base); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ========== Layout containers ========== */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+
+  section {
+    padding: var(--section-padding-y) 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  /* ========== Topbar ========== */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-4) 0;
+  }
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-6);
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .brand-dot {
+    color: var(--accent-primary);
+  }
+  .topbar-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-feature-settings: 'tnum' on;
+  }
+
+  /* ========== Hero do design system ========== */
+  .ds-hero {
+    padding: var(--space-32) 0 var(--space-24);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+  }
+  .ds-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle at 30% 50%, rgba(212, 165, 116, 0.12), transparent 60%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: drift 30s ease-in-out infinite alternate;
+  }
+  .ds-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at 70% 50%, rgba(245, 183, 177, 0.08), transparent 60%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: drift 40s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes drift {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(40px, 30px, 0) scale(1.08); }
+  }
+  .ds-hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-4);
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 12px var(--accent-primary);
+  }
+  h1.ds-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-6);
+    max-width: 880px;
+  }
+  h1.ds-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-primary);
+  }
+  .ds-subtitle {
+    font-size: clamp(16px, 1.2vw, 19px);
+    color: var(--text-secondary);
+    max-width: 620px;
+    line-height: 1.55;
+  }
+
+  /* ========== Section heading ========== */
+  .section-head {
+    margin-bottom: var(--space-12);
+    max-width: 720px;
+  }
+  .section-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-2);
+    display: block;
+    letter-spacing: -0.01em;
+  }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-3);
+  }
+  h2.section-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-primary);
+  }
+  .section-lead {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h3.subhead {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ========== Color swatches ========== */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-4);
+  }
+  .swatch {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: transform 240ms ease, border-color 240ms ease;
+  }
+  .swatch:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+  .swatch-color {
+    width: 100%;
+    height: 96px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--border-subtle);
+  }
+  .swatch-name {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: var(--space-1);
+  }
+  .swatch-hex {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  .swatch-use {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--border-default);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ========== Typography section ========== */
+  .type-grid {
+    display: grid;
+    gap: var(--space-12);
+  }
+  .type-sample {
+    border-left: 2px solid var(--border-strong);
+    padding-left: var(--space-6);
+  }
+  .type-label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+  }
+  .display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+  .display-xl em {
+    font-style: italic;
+    color: var(--accent-primary);
+    font-weight: 400;
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 4vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .display-md {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .body-lg {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+  .body-base {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .body-sm {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  .body-mono {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+  }
+
+  /* ========== Buttons ========== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 14px 24px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--accent-primary);
+    color: var(--bg-base);
+  }
+  .btn-primary:hover {
+    background: var(--accent-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+  .btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+  }
+  .btn-secondary:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-overlay);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+    padding: 14px 12px;
+  }
+  .btn-ghost:hover {
+    color: var(--accent-primary);
+  }
+  .btn-arrow {
+    transition: transform 240ms ease;
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  /* ========== Form elements ========== */
+  .form-demo {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 520px;
+  }
+  .input-wrap {
+    position: relative;
+  }
+  .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+    letter-spacing: 0.01em;
+  }
+  .input,
+  .select {
+    width: 100%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .input::placeholder {
+    color: var(--text-faint);
+  }
+  .input:focus,
+  .select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: var(--bg-overlay);
+  }
+  .input-inline {
+    display: flex;
+    gap: var(--space-2);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    align-items: stretch;
+  }
+  .input-inline .input {
+    background: transparent;
+    border: none;
+    flex: 1;
+  }
+  .input-inline .input:focus {
+    background: transparent;
+  }
+  .input-inline .btn-primary {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  .form-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ========== Cards ========== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: 0 0 0 1px rgba(212, 165, 116, 0.05), 0 24px 48px -16px rgba(0, 0, 0, 0.6);
+  }
+  .card-icon {
+    width: 40px; height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-4);
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--space-2);
+  }
+  .card-body {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ========== Big number block ========== */
+  .number-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-8);
+  }
+  .number {
+    border-left: 2px solid var(--border-strong);
+    padding-left: var(--space-6);
+  }
+  .number-value {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-3);
+  }
+  .number-loss { color: var(--accent-secondary); }
+  .number-win { color: var(--accent-success); }
+  .number-neutral { color: var(--accent-primary); }
+  .number-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .number-label em {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+
+  /* ========== Comparison table ========== */
+  .compare {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    border-bottom: 1px solid var(--border-subtle);
+    align-items: center;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div {
+    padding: var(--space-4) var(--space-6);
+    font-size: 14px;
+  }
+  .compare-row.head > div {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: var(--space-3) var(--space-6);
+  }
+  .compare-head-techla {
+    color: var(--accent-primary) !important;
+    background: rgba(212, 165, 116, 0.04);
+  }
+  .compare-criterion {
+    color: var(--text-secondary);
+  }
+  .compare-secretaria {
+    color: var(--text-muted);
+  }
+  .compare-techla {
+    color: var(--text-primary);
+    background: rgba(212, 165, 116, 0.03);
+    font-weight: 500;
+  }
+  .check {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .check-icon {
+    color: var(--accent-success);
+    flex-shrink: 0;
+  }
+  .x-icon {
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  /* ========== Calculator preview ========== */
+  .calc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+  @media (max-width: 768px) { .calc { grid-template-columns: 1fr; } }
+  .calc-inputs {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+  }
+  .calc-input {
+    margin-bottom: var(--space-6);
+  }
+  .calc-input:last-child { margin-bottom: 0; }
+  .calc-input-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-3);
+  }
+  .calc-input-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .calc-input-value {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent-primary);
+    letter-spacing: -0.01em;
+  }
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--bg-overlay);
+    border-radius: 999px;
+    outline: none;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.4);
+    transition: transform 160ms ease;
+  }
+  .slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  .slider::-moz-range-thumb {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    border: none;
+    cursor: pointer;
+  }
+  .calc-output {
+    background: var(--bg-elevated);
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 64px rgba(212, 165, 116, 0.08);
+  }
+  .calc-output-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+  }
+  .calc-output-loss {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    color: var(--accent-secondary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+    font-feature-settings: 'tnum' on;
+  }
+  .calc-output-win {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 500;
+    color: var(--accent-success);
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+  }
+  .calc-output-fineprint {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ========== Motion samples ========== */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+  .motion-box {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+  .motion-label {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-6);
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    z-index: 2;
+  }
+  /* Mesh sample */
+  .motion-mesh {
+    background:
+      radial-gradient(circle at 20% 40%, rgba(212, 165, 116, 0.45), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(245, 183, 177, 0.35), transparent 50%),
+      radial-gradient(circle at 50% 20%, rgba(245, 244, 240, 0.06), transparent 50%);
+    filter: blur(20px);
+    animation: meshDrift 18s ease-in-out infinite alternate;
+  }
+  @keyframes meshDrift {
+    0% { background-position: 0% 0%; transform: scale(1); }
+    100% { background-position: 30% 20%; transform: scale(1.15); }
+  }
+  /* Aurora sample */
+  .motion-aurora {
+    background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.35), transparent 60%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(0.95); }
+    50%      { opacity: 1; transform: scale(1.05); }
+  }
+  /* Stagger reveal */
+  .motion-stagger {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  .motion-line {
+    height: 12px;
+    background: var(--bg-overlay);
+    border-radius: 4px;
+    animation: lineReveal 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: left;
+  }
+  .motion-line:nth-child(1) { width: 80%; animation-delay: 0s; }
+  .motion-line:nth-child(2) { width: 95%; animation-delay: 0.12s; }
+  .motion-line:nth-child(3) { width: 60%; animation-delay: 0.24s; }
+  .motion-line:nth-child(4) { width: 88%; animation-delay: 0.36s; }
+  @keyframes lineReveal {
+    0%      { transform: scaleX(0); opacity: 0; }
+    20%, 80% { transform: scaleX(1); opacity: 1; }
+    100%    { transform: scaleX(1); opacity: 1; }
+  }
+  /* Number counter sample */
+  .motion-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .counter-value {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 500;
+    color: var(--accent-primary);
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum' on;
+  }
+
+  /* ========== Bento grid sample ========== */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  @media (max-width: 900px) { .bento { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .bento { grid-template-columns: 1fr; } }
+  .bento-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    min-height: 200px;
+    transition: all 240ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.08), transparent 60%);
+    opacity: 0;
+    transition: opacity 360ms ease;
+  }
+  .bento-card:hover::before {
+    opacity: 1;
+  }
+  .bento-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .bento-card-icon {
+    color: var(--accent-primary);
+    margin-bottom: var(--space-4);
+    width: 28px; height: 28px;
+  }
+  .bento-card-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+    position: relative;
+    z-index: 1;
+  }
+  .bento-card-body {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.55;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ========== Spacing scale ========== */
+  .spacing-grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .spacing-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    gap: var(--space-4);
+    align-items: center;
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .spacing-bar {
+    background: var(--accent-primary);
+    height: 14px;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  /* ========== Shadow showcase ========== */
+  .shadow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-8);
+  }
+  .shadow-sample {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    aspect-ratio: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .shadow-sample.sm { box-shadow: var(--shadow-sm); }
+  .shadow-sample.md { box-shadow: var(--shadow-md); }
+  .shadow-sample.lg { box-shadow: var(--shadow-lg); }
+  .shadow-sample.glow { box-shadow: var(--shadow-glow); border-color: var(--border-strong); }
+
+  /* ========== Footer ========== */
+  footer {
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* ========== A11y / Motion preferences ========== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== TOPBAR =========== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">Techla<span class="brand-dot">.</span></div>
+    <div class="topbar-meta">Design System · v0.1 · 2026-05-12</div>
+  </div>
+</div>
+
+<!-- =========== HERO =========== -->
+<header class="ds-hero">
+  <div class="container ds-hero-inner">
+    <span class="eyebrow"><span class="eyebrow-dot"></span>Design System · Premium Dark Editorial</span>
+    <h1 class="ds-title">Stripe encontra <em>Chanel</em>.<br/>Ogilvy escreve. Schwartz arquiteta.</h1>
+    <p class="ds-subtitle">Sistema visual da Techla — premium escuro com alma editorial. Champagne sobre preto azulado, Fraunces serif com italics dramáticos, micro-interações contidas. Tudo orientado por princípio, nada por default.</p>
+  </div>
+</header>
+
+<!-- =========== COLOR PALETTE =========== -->
+<section id="colors">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 01 · cores</span>
+      <h2 class="section-title">A paleta <em>sagrada</em></h2>
+      <p class="section-lead">Um único accent: rose-gold (<code>#D4A574</code>). Fundo preto azulado, não puro — Linear-like. Off-white quente para texto. Romper a convergência B2B significa não usar purple/blue.</p>
+    </header>
+
+    <h3 class="subhead">Backgrounds</h3>
+    <div class="palette-grid" style="margin-bottom: var(--space-12);">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0A0A0B;"></div>
+        <div class="swatch-name">bg-base</div>
+        <div class="swatch-hex">#0A0A0B</div>
+        <div class="swatch-use">Fundo principal. Preto azulado refinado.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #131316;"></div>
+        <div class="swatch-name">bg-elevated</div>
+        <div class="swatch-hex">#131316</div>
+        <div class="swatch-use">Cards, seções secundárias, form fields.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #1C1C21;"></div>
+        <div class="swatch-name">bg-overlay</div>
+        <div class="swatch-hex">#1C1C21</div>
+        <div class="swatch-use">Modais, hover states, terceira elevação.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #050506;"></div>
+        <div class="swatch-name">bg-deep</div>
+        <div class="swatch-hex">#050506</div>
+        <div class="swatch-use">Reservado a footer ou momentos de imersão.</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Texto</h3>
+    <div class="palette-grid" style="margin-bottom: var(--space-12);">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F5F4F0;"></div>
+        <div class="swatch-name">text-primary</div>
+        <div class="swatch-hex">#F5F4F0</div>
+        <div class="swatch-use">Off-white quente. Headlines + body primário.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #8B8B93;"></div>
+        <div class="swatch-name">text-secondary</div>
+        <div class="swatch-hex">#8B8B93</div>
+        <div class="swatch-use">Sub-textos, labels, body secundário.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(245,244,240,0.5);"></div>
+        <div class="swatch-name">text-muted</div>
+        <div class="swatch-hex">rgba(245,244,240,0.5)</div>
+        <div class="swatch-use">Hints, microcopy, fine print.</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Accents</h3>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #D4A574;"></div>
+        <div class="swatch-name">accent-primary</div>
+        <div class="swatch-hex">#D4A574</div>
+        <div class="swatch-use"><strong style="color:var(--accent-primary)">Rose-gold.</strong> CTA, highlights, italic word.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F5B7B1;"></div>
+        <div class="swatch-name">accent-secondary</div>
+        <div class="swatch-hex">#F5B7B1</div>
+        <div class="swatch-use">Rosé. Mesh, glows, números de perda.</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #7DD3A8;"></div>
+        <div class="swatch-name">accent-success</div>
+        <div class="swatch-hex">#7DD3A8</div>
+        <div class="swatch-use">Sage green. Métricas positivas, ROI, ✓.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== TYPOGRAPHY =========== -->
+<section id="typography">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 02 · tipografia</span>
+      <h2 class="section-title">Duas fontes. Uma <em>assinatura</em>.</h2>
+      <p class="section-lead">Fraunces como display (serif moderno com italics dramáticos) e Inter como body (neutralidade B2B máxima). Nunca uma terceira família. O contraste serif italic numa palavra-chave é a assinatura inteira da marca.</p>
+    </header>
+
+    <div class="type-grid">
+      <div class="type-sample">
+        <div class="type-label">Display XL · Fraunces 500 · clamp(56px → 96px)</div>
+        <div class="display-xl">O atendimento que sua clínica <em>merece</em>.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Display LG · Fraunces 500 · clamp(40px → 56px)</div>
+        <div class="display-lg">Pelo preço de <em>meia secretária</em>.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Display MD · Fraunces 500 · 32px</div>
+        <div class="display-md">Não é chatbot. É operação.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Body LG · Inter 400 · 19px</div>
+        <div class="body-lg">Especializada em clínicas de estética com 2-3 funcionários. Implementação em 14 dias. Garantia de 30 dias money-back.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Body Base · Inter 400 · 16px</div>
+        <div class="body-base">A Techla monta toda a operação comercial da sua clínica com IA. Não vendemos chatbot — entregamos o sistema inteiro pronto: agente SDR no WhatsApp 24/7, CRM com pipeline, follow-up automatizado, recuperação de no-show e reativação de base.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Body SM · Inter 400 · 14px</div>
+        <div class="body-sm">Sem custo. Sem compromisso. Apenas se fizer sentido pra sua clínica.</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Mono · System monospace · 13px</div>
+        <div class="body-mono">Garantia 30 dias money-back · Setup R$2.497 · Mensalidade R$897 · Cancelamento sem multa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== BUTTONS =========== -->
+<section id="buttons">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 03 · botões</span>
+      <h2 class="section-title">Três níveis. <em>Uma</em> hierarquia.</h2>
+      <p class="section-lead">Primário sólido rose-gold para a única ação que importa. Secundário ghost para alternativas. Terciário invisível pra links contextuais. Hover sempre eleva (translate-Y) com leve glow.</p>
+    </header>
+
+    <h3 class="subhead">Default · Hover · Active</h3>
+    <div class="btn-row" style="margin-bottom: var(--space-8);">
+      <button class="btn btn-primary">Quero meu diagnóstico <span class="btn-arrow">→</span></button>
+      <button class="btn btn-secondary">Falar no WhatsApp</button>
+      <a href="#" class="btn btn-ghost">Saber mais <span class="btn-arrow">→</span></a>
+    </div>
+
+    <h3 class="subhead">Form inline (hero)</h3>
+    <div class="form-demo" style="max-width: 560px;">
+      <div class="input-inline">
+        <input type="tel" class="input" placeholder="WhatsApp da clínica (com DDD)" />
+        <button class="btn btn-primary">Aplicar</button>
+      </div>
+      <div class="form-hint">Sem custo. Sem compromisso. Apenas se fizer sentido.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FORMS =========== -->
+<section id="forms">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 04 · formulários</span>
+      <h2 class="section-title">Campos que <em>respiram</em>.</h2>
+      <p class="section-lead">Padding generoso (14px vertical, 16px horizontal). Border sutil que vira rose-gold no foco. Background eleva levemente no foco. Zero ruído visual — o formulário é o herói, não o decorador.</p>
+    </header>
+
+    <div class="form-demo">
+      <div>
+        <label class="label" for="ds-name">Nome</label>
+        <input id="ds-name" type="text" class="input" placeholder="Seu nome completo" />
+      </div>
+      <div>
+        <label class="label" for="ds-email">E-mail</label>
+        <input id="ds-email" type="email" class="input" placeholder="voce@suaclinica.com.br" />
+      </div>
+      <div>
+        <label class="label" for="ds-whats">WhatsApp da clínica</label>
+        <input id="ds-whats" type="tel" class="input" placeholder="(37) 9 9999-9999" />
+      </div>
+      <div>
+        <label class="label" for="ds-fat">Faturamento aproximado</label>
+        <select id="ds-fat" class="select">
+          <option>Selecione uma faixa</option>
+          <option>Até R$ 30 mil/mês</option>
+          <option>R$ 30 a 50 mil/mês</option>
+          <option>R$ 50 a 100 mil/mês</option>
+          <option>Acima de R$ 100 mil/mês</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" style="margin-top: var(--space-2);">Quero meu diagnóstico gratuito <span class="btn-arrow">→</span></button>
+      <div class="form-hint">Em até 24h entramos em contato pelo WhatsApp pra agendar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CARDS =========== -->
+<section id="cards">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 05 · cards</span>
+      <h2 class="section-title">Cards que <em>convidam</em>.</h2>
+      <p class="section-lead">Background elevated, border quase invisível, hover sobe levemente e ganha borda rose-gold. Ícone outline em rose-gold no topo. Título em Fraunces, body em Inter. Disciplina cromática extrema.</p>
+    </header>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </div>
+        <div class="card-title">Agente SDR no WhatsApp</div>
+        <div class="card-body">Atende, qualifica e agenda 24/7 em português natural. Treinado com o vocabulário da sua clínica. Não parece robô — acolhe.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div class="card-title">Agendamento integrado</div>
+        <div class="card-body">A agenda fecha sozinha. Lembrete automático 24h antes e 2h antes — no-show despenca.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"/>
+            <path d="M18 17V9"/>
+            <path d="M13 17V5"/>
+            <path d="M8 17v-3"/>
+          </svg>
+        </div>
+        <div class="card-title">Relatório semanal</div>
+        <div class="card-body">Leads atendidos, taxa de qualificação, agendamentos, no-show recuperado. Toda segunda no seu WhatsApp.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== NUMBERS =========== -->
+<section id="numbers">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 06 · números</span>
+      <h2 class="section-title">Números <em>grandes</em>. Pra leitora que rola rápido.</h2>
+      <p class="section-lead">Fraunces gigante, font-feature tabular-nums. Três variações: perda (rosé), neutro (champagne), ganho (sage). Cada um com label em Inter abaixo.</p>
+    </header>
+
+    <div class="number-block">
+      <div class="number">
+        <div class="number-value number-loss">R$ 8.000</div>
+        <div class="number-label">por mês somem em leads que chegam às 22h e nunca são respondidos. <em>Falta dói no caixa e na agenda.</em></div>
+      </div>
+      <div class="number">
+        <div class="number-value number-neutral">21x</div>
+        <div class="number-label">mais chance de fechar venda respondendo em 5 minutos vs 30 minutos. <em>MIT / Harvard Business Review.</em></div>
+      </div>
+      <div class="number">
+        <div class="number-value number-win">+R$ 12.000</div>
+        <div class="number-label">recuperáveis por mês com Techla rodando — já descontando a mensalidade. <em>Cenário conservador.</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== COMPARISON TABLE =========== -->
+<section id="comparison">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 07 · comparativo</span>
+      <h2 class="section-title">Tabelas que <em>matam objeção</em>.</h2>
+      <p class="section-lead">Coluna "Techla" levemente realçada com fundo rose-gold a 3% opacity. Coluna concorrente em opacity 0.6. Linhas com border-bottom sutil. Mobile: vira cards comparativos lado a lado.</p>
+    </header>
+
+    <div class="compare">
+      <div class="compare-row head">
+        <div>Critério</div>
+        <div>Secretária CLT</div>
+        <div class="compare-head-techla">Techla</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Custo mensal real</div>
+        <div class="compare-secretaria">R$ 2.400 – R$ 2.800</div>
+        <div class="compare-techla">R$ 897</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Horário de trabalho</div>
+        <div class="compare-secretaria">8h/dia, seg–sex</div>
+        <div class="compare-techla">24/7, todos os dias</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Tempo de resposta</div>
+        <div class="compare-secretaria">Minutos a horas</div>
+        <div class="compare-techla">Segundos</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Pronta para operar em</div>
+        <div class="compare-secretaria">30 – 90 dias</div>
+        <div class="compare-techla">14 dias</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Esquece follow-up</div>
+        <div class="compare-secretaria">
+          <span class="check"><svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Acontece</span>
+        </div>
+        <div class="compare-techla">
+          <span class="check"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Não esquece</span>
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-criterion">Reativa base inativa</div>
+        <div class="compare-secretaria">
+          <span class="check"><svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Não tem tempo</span>
+        </div>
+        <div class="compare-techla">
+          <span class="check"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Automaticamente</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CALCULATOR =========== -->
+<section id="calculator">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 08 · calculadora</span>
+      <h2 class="section-title">Calculadora que <em>convence sozinha</em>.</h2>
+      <p class="section-lead">A leitora preenche os números dela. O cálculo é conservador. O output em rose-gold/sage-green dá identidade emocional ao valor (perda vs ganho). Princípio Schwartz: ela mesma faz a conta — não foi a copy que afirmou.</p>
+    </header>
+
+    <div class="calc">
+      <div class="calc-inputs">
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Leads por mês</span>
+            <span class="calc-input-value" id="leads-v">150</span>
+          </div>
+          <input type="range" class="slider" id="leads" min="50" max="500" step="10" value="150" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Ticket médio</span>
+            <span class="calc-input-value" id="ticket-v">R$ 1.200</span>
+          </div>
+          <input type="range" class="slider" id="ticket" min="300" max="3000" step="50" value="1200" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">No-show atual</span>
+            <span class="calc-input-value" id="noshow-v">25%</span>
+          </div>
+          <input type="range" class="slider" id="noshow" min="10" max="40" step="1" value="25" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Base inativa</span>
+            <span class="calc-input-value" id="base-v">1.500</span>
+          </div>
+          <input type="range" class="slider" id="base" min="200" max="3000" step="50" value="1500" />
+        </div>
+      </div>
+      <div class="calc-output">
+        <div class="calc-output-label">Sua clínica perde, por mês:</div>
+        <div class="calc-output-loss" id="loss">R$ 0</div>
+        <div class="calc-output-label">Recuperando 30% com Techla:</div>
+        <div class="calc-output-win" id="win">+R$ 0 / mês</div>
+        <div class="calc-output-fineprint">Cenário conservador. Cálculo já desconta a mensalidade de R$ 897.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== BENTO GRID =========== -->
+<section id="bento">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 09 · bento grid</span>
+      <h2 class="section-title">Grids que <em>respiram</em>.</h2>
+      <p class="section-lead">3 colunas no desktop, 2 no tablet, 1 no mobile. Cada card com mesh radial sutil no hover (revela o accent quente vindo da diagonal). Ícone champagne, título Fraunces, body Inter.</p>
+    </header>
+
+    <div class="bento">
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="bento-card-title">24/7 sem pausa</div>
+        <div class="bento-card-body">Atende às 23h47 de um sábado. Sem reclamar.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <div class="bento-card-title">Pronta em 14 dias</div>
+        <div class="bento-card-body">Setup completo: agente, CRM, integrações, treinamento.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="bento-card-title">Acolhimento que escala</div>
+        <div class="bento-card-body">Vocabulário do nicho. Tom da sua clínica.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <div class="bento-card-title">Reativa base parada</div>
+        <div class="bento-card-body">Sua base de 1.500 contatas adormecidas vira receita.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div class="bento-card-title">Métricas que importam</div>
+        <div class="bento-card-body">Relatório semanal direto no seu WhatsApp.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="bento-card-title">Garantia 30 dias</div>
+        <div class="bento-card-body">Ou seu dinheiro de volta. Setup + mensalidade.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== MOTION =========== -->
+<section id="motion">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 10 · motion</span>
+      <h2 class="section-title">Movimento com <em>propósito</em>.</h2>
+      <p class="section-lead">Animação só serve se reforça hierarquia. GPU-only (transform + opacity). 240ms ease para hovers, 400ms cubic-bezier para contadores, 18-30s para meshes de fundo. Tudo respeitando <code>prefers-reduced-motion</code>.</p>
+    </header>
+
+    <div class="motion-grid">
+      <div class="motion-box motion-mesh">
+        <span class="motion-label">Champagne Mesh · 18s cycle</span>
+      </div>
+      <div class="motion-box">
+        <div class="motion-aurora" style="position:absolute; inset:0;"></div>
+        <span class="motion-label">Aurora Glow · pulse 4s</span>
+      </div>
+      <div class="motion-box motion-stagger">
+        <div class="motion-line"></div>
+        <div class="motion-line"></div>
+        <div class="motion-line"></div>
+        <div class="motion-line"></div>
+        <span class="motion-label">Stagger Reveal · 120ms each</span>
+      </div>
+      <div class="motion-box motion-counter">
+        <div class="counter-value" id="counter">R$ 0</div>
+        <span class="motion-label">Number Counter · 400ms easing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SPACING =========== -->
+<section id="spacing">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 11 · espaçamento</span>
+      <h2 class="section-title">Escala em <em>oitavas</em>.</h2>
+      <p class="section-lead">Múltiplos de 4px. Padding vertical de seção é <code>clamp(80px, 12vh, 160px)</code> — adapta entre devices sem quebra brusca. Disciplina de espaçamento é o que separa premium de amador.</p>
+    </header>
+
+    <div class="spacing-grid">
+      <div class="spacing-row"><span>--space-1</span><div class="spacing-bar" style="width: 4px;"></div><span>4px</span></div>
+      <div class="spacing-row"><span>--space-2</span><div class="spacing-bar" style="width: 8px;"></div><span>8px</span></div>
+      <div class="spacing-row"><span>--space-3</span><div class="spacing-bar" style="width: 12px;"></div><span>12px</span></div>
+      <div class="spacing-row"><span>--space-4</span><div class="spacing-bar" style="width: 16px;"></div><span>16px</span></div>
+      <div class="spacing-row"><span>--space-6</span><div class="spacing-bar" style="width: 24px;"></div><span>24px</span></div>
+      <div class="spacing-row"><span>--space-8</span><div class="spacing-bar" style="width: 32px;"></div><span>32px</span></div>
+      <div class="spacing-row"><span>--space-12</span><div class="spacing-bar" style="width: 48px;"></div><span>48px</span></div>
+      <div class="spacing-row"><span>--space-16</span><div class="spacing-bar" style="width: 64px;"></div><span>64px</span></div>
+      <div class="spacing-row"><span>--space-24</span><div class="spacing-bar" style="width: 96px;"></div><span>96px</span></div>
+      <div class="spacing-row"><span>--space-32</span><div class="spacing-bar" style="width: 128px;"></div><span>128px</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SHADOWS =========== -->
+<section id="shadows">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-num">§ 12 · sombras</span>
+      <h2 class="section-title">Sombras que <em>sustentam</em>.</h2>
+      <p class="section-lead">Quatro níveis. SM para inputs sutis, MD para cards default, LG para hero mockup, Glow para CTA hover (rose-gold blur 64px). Sombras escuras profundas (alpha 0.4-0.6) — não cinzas opacas.</p>
+    </header>
+
+    <div class="shadow-grid">
+      <div class="shadow-sample sm">shadow-sm</div>
+      <div class="shadow-sample md">shadow-md</div>
+      <div class="shadow-sample lg">shadow-lg</div>
+      <div class="shadow-sample glow">shadow-glow</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="container">
+    <strong>Techla Design System v0.1</strong> · construído como mapa de execução para a página de aplicação. Iterar livremente.
+  </div>
+</footer>
+
+<script>
+  // ===== Calculator =====
+  const fmtBRL = (n) =>
+    'R$ ' + Math.round(n).toLocaleString('pt-BR');
+
+  const inputs = {
+    leads: document.getElementById('leads'),
+    ticket: document.getElementById('ticket'),
+    noshow: document.getElementById('noshow'),
+    base: document.getElementById('base'),
+  };
+  const valueDisplays = {
+    leads: document.getElementById('leads-v'),
+    ticket: document.getElementById('ticket-v'),
+    noshow: document.getElementById('noshow-v'),
+    base: document.getElementById('base-v'),
+  };
+  const lossEl = document.getElementById('loss');
+  const winEl = document.getElementById('win');
+
+  function calc() {
+    const leads = +inputs.leads.value;
+    const ticket = +inputs.ticket.value;
+    const noshow = +inputs.noshow.value / 100;
+    const base = +inputs.base.value;
+
+    // Cenário conservador:
+    //  - 30% dos leads vazam fora do horário
+    //  - Conversão potencial subiria 15pp se atendidos (de 15% pra 30%)
+    //  - No-show evitável: assumimos que reduz pela metade
+    //  - Reativação: 3% da base x ticket / 3 (recorrência trimestral / 3 meses)
+    const leadsPerdidos = 0.30 * leads * 0.15 * ticket;
+    const conversaoExtra = (leads * 0.70) * 0.15 * ticket;
+    const noshowEvitavel = (leads * 0.30) * (noshow / 2) * ticket;
+    const reativacao = base * 0.03 * ticket / 3;
+    const perdaTotal = leadsPerdidos + conversaoExtra + noshowEvitavel + reativacao;
+    const ganho30 = perdaTotal * 0.30 - 897;
+
+    lossEl.textContent = fmtBRL(perdaTotal);
+    winEl.textContent = '+' + fmtBRL(Math.max(0, ganho30)) + ' / mês';
+  }
+
+  for (const k in inputs) {
+    inputs[k].addEventListener('input', () => {
+      if (k === 'leads') valueDisplays.leads.textContent = inputs.leads.value;
+      if (k === 'ticket') valueDisplays.ticket.textContent = 'R$ ' + (+inputs.ticket.value).toLocaleString('pt-BR');
+      if (k === 'noshow') valueDisplays.noshow.textContent = inputs.noshow.value + '%';
+      if (k === 'base') valueDisplays.base.textContent = (+inputs.base.value).toLocaleString('pt-BR');
+      calc();
+    });
+  }
+  calc();
+
+  // ===== Number Counter (motion demo) =====
+  const counter = document.getElementById('counter');
+  let counterRunning = false;
+  function runCounter() {
+    if (counterRunning) return;
+    counterRunning = true;
+    let v = 0;
+    const target = 45000;
+    const start = performance.now();
+    const dur = 1600;
+    function step(t) {
+      const p = Math.min(1, (t - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      v = Math.round(target * eased);
+      counter.textContent = fmtBRL(v);
+      if (p < 1) requestAnimationFrame(step);
+      else {
+        setTimeout(() => {
+          counter.textContent = 'R$ 0';
+          counterRunning = false;
+        }, 1600);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  setInterval(runCounter, 4000);
+  runCounter();
+</script>
+
+</body>
+</html>

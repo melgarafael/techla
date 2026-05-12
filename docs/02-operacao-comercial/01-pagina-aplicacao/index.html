@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0A0A0B" />
+<meta name="color-scheme" content="dark" />
+
+<title>Techla — A IA que sua clínica de estética precisa para nunca mais perder uma cliente</title>
+<meta name="description" content="Agente SDR no WhatsApp 24/7, CRM, recuperação de no-show e reativação de base. Operação completa entregue em 14 dias. Garantia de 30 dias money-back. Para clínicas de estética com 2-3 funcionários." />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Techla — IA para clínicas de estética" />
+<meta property="og:description" content="Sua clínica atendendo, qualificando e agendando 24h por dia — sem contratar mais uma secretária." />
+<meta property="og:site_name" content="Techla" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Techla — IA para clínicas de estética" />
+<meta name="twitter:description" content="Sua clínica atendendo 24h sem contratar mais ninguém." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Techla — Operação Comercial com IA para Clínicas de Estética",
+  "provider": {
+    "@type": "Organization",
+    "name": "Techla",
+    "areaServed": {
+      "@type": "City",
+      "name": "Divinópolis"
+    }
+  },
+  "description": "Agência de IA especializada em clínicas de estética. Agente SDR, CRM, follow-up e reativação de base.",
+  "serviceType": "Inteligência Artificial para Atendimento"
+}
+</script>
+
+<style>
+  :root {
+    --bg-base: #0A0A0B;
+    --bg-elevated: #131316;
+    --bg-overlay: #1C1C21;
+    --bg-deep: #050506;
+    --text-primary: #F5F4F0;
+    --text-secondary: #8B8B93;
+    --text-muted: rgba(245, 244, 240, 0.5);
+    --text-faint: rgba(245, 244, 240, 0.3);
+    --accent-primary: #D4A574;
+    --accent-primary-hover: #E0B687;
+    --accent-secondary: #F5B7B1;
+    --accent-success: #7DD3A8;
+    --border-subtle: rgba(245, 244, 240, 0.06);
+    --border-default: rgba(245, 244, 240, 0.08);
+    --border-strong: rgba(212, 165, 116, 0.18);
+    --border-emphasis: rgba(212, 165, 116, 0.4);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+    --section-padding-y: clamp(80px, 12vh, 160px);
+    --container-padding: clamp(20px, 4vw, 32px);
+    --max-content: 1280px;
+  }
+  /* CSS @property for animatable conic rotation */
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: var(--accent-primary); color: var(--bg-base); }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    background: var(--bg-base); color: var(--text-primary);
+    font-family: var(--font-body); font-size: 16px; font-weight: 400; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent-primary); color: var(--bg-base); padding: 12px 20px; z-index: 100; font-weight: 500; }
+  .skip-link:focus { left: 16px; top: 16px; }
+  .container { max-width: var(--max-content); margin: 0 auto; padding: 0 var(--container-padding); }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-primary); margin-bottom: 24px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent-primary); }
+  .eyebrow.dotted::before {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-primary); box-shadow: 0 0 12px var(--accent-primary);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .section-head { max-width: 760px; margin: 0 auto 80px; text-align: center; }
+  .section-head.left { margin-left: 0; margin-right: auto; text-align: left; }
+  h2.section-title {
+    font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px);
+    font-weight: 500; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 16px;
+  }
+  h2.section-title em { font-style: italic; font-weight: 400; color: var(--accent-primary); }
+  .section-lead { color: var(--text-secondary); font-size: clamp(16px, 1.2vw, 19px); line-height: 1.55; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font-body); font-weight: 500; font-size: 15px;
+    padding: 14px 24px; border-radius: 10px; border: none; text-decoration: none;
+    transition: all 240ms cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap;
+  }
+  .btn-primary { background: var(--accent-primary); color: var(--bg-base); }
+  .btn-primary:hover { background: var(--accent-primary-hover); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(212,165,116,0.25); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 4px; }
+  .btn .arrow { transition: transform 240ms ease; display: inline-block; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  nav.topnav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,11,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); padding: 18px 0; }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .brand { font-family: var(--font-display); font-size: 24px; font-weight: 500; letter-spacing: -0.02em; color: var(--text-primary); }
+  .brand-dot { color: var(--accent-primary); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-link { color: var(--text-secondary); font-size: 14px; font-weight: 400; transition: color 200ms ease; }
+  .nav-link:hover { color: var(--text-primary); }
+  .nav-cta { background: transparent; color: var(--text-primary); border: 1px solid var(--border-default); padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 200ms ease; }
+  .nav-cta:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
+  @media (max-width: 720px) { .nav-link:not(.nav-cta) { display: none; } }
+
+  /* HERO */
+  .hero { position: relative; padding: clamp(60px, 12vh, 140px) 0 clamp(80px, 12vh, 140px); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  /* Aurora gradient — 4 blobs em radials sobrepostos, paleta champagne+rose+sage */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 30%, rgba(212, 165, 116, 0.28), transparent 60%),
+      radial-gradient(ellipse 500px 380px at 75% 25%, rgba(245, 183, 177, 0.18), transparent 60%),
+      radial-gradient(ellipse 700px 450px at 60% 75%, rgba(125, 211, 168, 0.10), transparent 60%),
+      radial-gradient(ellipse 480px 360px at 30% 80%, rgba(212, 165, 116, 0.15), transparent 60%);
+    filter: blur(110px);
+    animation: aurora-drift 36s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    background:
+      radial-gradient(ellipse 400px 300px at 50% 50%, rgba(245, 183, 177, 0.12), transparent 60%),
+      radial-gradient(ellipse 550px 380px at 85% 60%, rgba(212, 165, 116, 0.14), transparent 60%);
+    filter: blur(120px);
+    animation: aurora-drift-2 44s ease-in-out infinite alternate;
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+  @keyframes aurora-drift { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(40px, 30px, 0) scale(1.08); } }
+  @keyframes aurora-drift-2 { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(-30px, -40px, 0) scale(1.12); } }
+  .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 960px) { .hero-inner { grid-template-columns: 1fr; gap: 56px; } }
+  h1.headline { font-family: var(--font-display); font-size: clamp(40px, 6.2vw, 84px); font-weight: 500; line-height: 1.04; letter-spacing: -0.028em; margin-bottom: 24px; opacity: 0; animation: fadeUp 800ms 350ms cubic-bezier(0.4,0,0.2,1) forwards; }
+  h1.headline em { font-style: italic; font-weight: 400; color: var(--accent-primary); }
+  .hero .eyebrow { opacity: 0; animation: fadeUp 700ms 200ms cubic-bezier(0.4,0,0.2,1) forwards; }
+  .sub { font-size: clamp(16px, 1.2vw, 19px); color: var(--text-secondary); line-height: 1.55; max-width: 540px; margin-bottom: 36px; opacity: 0; animation: fadeUp 800ms 500ms cubic-bezier(0.4,0,0.2,1) forwards; }
+  .hero-form { opacity: 0; animation: fadeUp 800ms 650ms cubic-bezier(0.4,0,0.2,1) forwards; max-width: 480px; }
+  .input-inline { display: flex; gap: 6px; background: rgba(19,19,22,0.8); border: 1px solid var(--border-strong); border-radius: 12px; padding: 6px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: border-color 240ms ease, box-shadow 240ms ease; }
+  .input-inline:focus-within { border-color: var(--accent-primary); box-shadow: 0 0 0 4px rgba(212,165,116,0.08), 0 0 32px rgba(212,165,116,0.12); }
+  .input-inline input { flex: 1; background: transparent; border: none; outline: none; color: var(--text-primary); font-family: var(--font-body); font-size: 15px; padding: 12px 14px; min-width: 0; }
+  .input-inline input::placeholder { color: var(--text-faint); }
+  .input-inline button { background: var(--accent-primary); color: var(--bg-base); border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 200ms ease; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .input-inline button:hover { background: var(--accent-primary-hover); transform: translateY(-1px); box-shadow: 0 0 32px rgba(212,165,116,0.25); }
+  .input-inline button:hover .arrow { transform: translateX(3px); }
+  .form-hint { margin-top: 12px; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .hero-trust { display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap; opacity: 0; animation: fadeUp 800ms 800ms cubic-bezier(0.4,0,0.2,1) forwards; }
+  .trust-item { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+  .trust-item svg { color: var(--accent-success); flex-shrink: 0; }
+
+  .mockup { opacity: 0; animation: fadeUp 1000ms 600ms cubic-bezier(0.4,0,0.2,1) forwards; perspective: 2000px; position: relative; }
+  /* Ambient glow champagne atrás do mockup */
+  .mockup::before {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    border-radius: 40px;
+    background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.20), transparent 70%);
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .mockup-inner {
+    position: relative;
+    background: linear-gradient(180deg, rgba(19,19,22,0.95), rgba(10,10,11,0.95));
+    border: 1px solid var(--border-default);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow:
+      0 48px 128px -16px rgba(0, 0, 0, 0.75),
+      0 24px 64px -12px rgba(0, 0, 0, 0.5),
+      0 0 200px rgba(212, 165, 116, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transform: rotateY(-4deg) rotateX(2deg);
+    transition: transform 600ms cubic-bezier(0.4,0,0.2,1);
+  }
+  .mockup:hover .mockup-inner { transform: rotateY(-2deg) rotateX(1deg) translateY(-4px); }
+  .mockup-chrome { display: flex; gap: 6px; margin-bottom: 14px; padding: 0 4px; }
+  .mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-overlay); }
+  .mockup-tabs { display: flex; gap: 4px; margin-bottom: 14px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 8px; }
+  .mockup-tab { flex: 1; padding: 8px 12px; text-align: center; font-size: 11px; color: var(--text-muted); border-radius: 6px; font-weight: 500; }
+  .mockup-tab.active { background: var(--bg-elevated); color: var(--text-primary); }
+  .chat { display: flex; flex-direction: column; gap: 10px; padding: 8px 4px; min-height: 280px; }
+  .chat-msg { max-width: 80%; padding: 10px 14px; border-radius: 14px; font-size: 13px; line-height: 1.4; }
+  .chat-msg.them { align-self: flex-start; background: var(--bg-elevated); color: var(--text-primary); border-bottom-left-radius: 4px; }
+  .chat-msg.us { align-self: flex-end; background: linear-gradient(180deg, #D4A574, #C09558); color: var(--bg-base); border-bottom-right-radius: 4px; font-weight: 500; }
+  .chat-time { font-size: 10px; color: var(--text-faint); text-align: right; margin-top: -4px; }
+  .chat-typing { display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; background: var(--bg-elevated); padding: 12px 14px; border-radius: 14px; border-bottom-left-radius: 4px; }
+  .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); animation: typing 1.4s infinite; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+  .mockup-meta { display: flex; justify-content: space-between; margin-top: 14px; padding: 10px 12px; background: rgba(0,0,0,0.3); border-radius: 10px; font-size: 11px; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label { color: var(--text-muted); font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .meta-value { color: var(--accent-primary); font-family: var(--font-display); font-size: 16px; font-weight: 500; font-feature-settings: 'tnum' on; }
+  .meta-value.win { color: var(--accent-success); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* AGITATION */
+  .agit { padding: var(--section-padding-y) 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+  .agit-head { max-width: 760px; margin-bottom: 80px; }
+  h2.agit-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 500; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 16px; }
+  h2.agit-title em { font-style: italic; font-weight: 400; color: var(--accent-primary); }
+  .agit-lead { color: var(--text-secondary); font-size: 18px; line-height: 1.55; }
+  .agit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  @media (max-width: 900px) { .agit-grid { grid-template-columns: 1fr; gap: 56px; } }
+  .loss-block { border-left: 2px solid var(--border-strong); padding-left: 28px; }
+  .loss-value { font-family: var(--font-display); font-size: clamp(48px, 5vw, 72px); font-weight: 500; line-height: 1; letter-spacing: -0.025em; margin-bottom: 14px; color: var(--accent-secondary); font-feature-settings: 'tnum' on; }
+  .loss-cap { font-size: 15px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px; }
+  .loss-cap em { color: var(--text-primary); font-family: var(--font-display); font-style: italic; font-weight: 500; }
+  .loss-quote { padding-top: 16px; border-top: 1px dashed var(--border-default); font-family: var(--font-display); font-style: italic; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .loss-source { display: block; font-style: normal; font-family: var(--font-body); font-size: 11px; color: var(--text-faint); margin-top: 6px; letter-spacing: 0.02em; }
+  .agit-anchor {
+    margin-top: 96px;
+    background: var(--bg-elevated);
+    border: none;
+    border-radius: 20px;
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+  /* Conic gradient animated border — "fato sagrado" */
+  .agit-anchor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1.5px;
+    background: conic-gradient(from var(--angle), #D4A574, #F5B7B1, #7DD3A8, #D4A574);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: conic-rotate 12s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+  /* Inner radial glow (movido pra ::after) */
+  .agit-anchor::after {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%; width: 60%; height: 200%;
+    background: radial-gradient(circle, rgba(212,165,116,0.10), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes conic-rotate { to { --angle: 360deg; } }
+  /* Fallback for browsers without @property support: gentle pulse */
+  @supports not (background: conic-gradient(from var(--angle), red, blue)) {
+    .agit-anchor { border: 1px solid var(--border-strong); }
+    .agit-anchor::before { display: none; }
+  }
+  .anchor-inner { position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  @media (max-width: 720px) { .agit-anchor { padding: 40px 28px; } .anchor-inner { grid-template-columns: 1fr; gap: 16px; } }
+  .anchor-num { font-family: var(--font-display); font-size: clamp(80px, 10vw, 140px); font-weight: 500; line-height: 0.9; letter-spacing: -0.04em; color: var(--accent-primary); font-feature-settings: 'tnum' on; }
+  .anchor-num small { font-size: 0.5em; color: var(--text-secondary); font-weight: 400; }
+  .anchor-text { font-family: var(--font-display); font-size: clamp(20px, 2vw, 28px); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: 16px; }
+  .anchor-text em { font-style: italic; color: var(--accent-primary); font-weight: 400; }
+  .anchor-source { font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* CALC */
+  .calc-section { padding: var(--section-padding-y) 0; }
+  .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; max-width: 1080px; margin: 0 auto; }
+  @media (max-width: 880px) { .calc { grid-template-columns: 1fr; } }
+  .calc-inputs { background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 20px; padding: 40px; }
+  .calc-input { margin-bottom: 28px; }
+  .calc-input:last-child { margin-bottom: 0; }
+  .calc-input-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .calc-input-label { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+  .calc-input-value { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--accent-primary); letter-spacing: -0.01em; font-feature-settings: 'tnum' on; }
+  .slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: var(--bg-overlay); border-radius: 999px; outline: none; }
+  .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-primary); cursor: pointer; box-shadow: 0 0 12px rgba(212,165,116,0.4); transition: transform 160ms ease; }
+  .slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+  .slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--accent-primary); border: none; cursor: pointer; }
+  .slider:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
+  .calc-output { background: var(--bg-elevated); border: 2px solid rgba(212,165,116,0.3); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 0 64px rgba(212,165,116,0.08); position: relative; overflow: hidden; }
+  .calc-output::before { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 200%; background: radial-gradient(circle, rgba(212,165,116,0.05), transparent 60%); pointer-events: none; }
+  .calc-output-inner { position: relative; z-index: 1; }
+  .calc-output-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .calc-output-loss { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); font-weight: 500; color: var(--accent-secondary); line-height: 1; letter-spacing: -0.02em; margin-bottom: 28px; font-feature-settings: 'tnum' on; }
+  .calc-output-win { font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 30px); font-weight: 500; color: var(--accent-success); line-height: 1.1; margin-bottom: 4px; font-feature-settings: 'tnum' on; }
+  .calc-output-fineprint { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 12px; }
+  .calc-cta-wrap { margin-top: 48px; text-align: center; }
+  .calc-transition { margin-top: 56px; text-align: center; font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 1.8vw, 24px); font-weight: 500; color: var(--text-secondary); max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.4; }
+
+  /* SOLUTION */
+  .solution { padding: var(--section-padding-y) 0; background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-deep) 100%); }
+  .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 960px) { .bento { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .bento { grid-template-columns: 1fr; } }
+  .bento-card { background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 16px; padding: 32px; transition: all 280ms cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; min-height: 200px; }
+  .bento-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(212,165,116,0.08), transparent 60%); opacity: 0; transition: opacity 360ms ease; pointer-events: none; }
+  .bento-card:hover::before { opacity: 1; }
+  .bento-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
+  .bento-card-icon { color: var(--accent-primary); margin-bottom: 20px; width: 32px; height: 32px; }
+  .bento-card-title { font-family: var(--font-display); font-size: 21px; font-weight: 500; margin-bottom: 8px; position: relative; z-index: 1; line-height: 1.3; }
+  .bento-card-body { color: var(--text-secondary); font-size: 15px; line-height: 1.55; position: relative; z-index: 1; }
+
+  /* COMPARE */
+  .compare-section { padding: var(--section-padding-y) 0; }
+  .compare { background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 20px; overflow: hidden; max-width: 1080px; margin: 0 auto; }
+  .compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; border-bottom: 1px solid var(--border-subtle); align-items: center; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row > div { padding: 18px 28px; font-size: 15px; }
+  .compare-row.head > div { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); padding: 16px 28px; font-weight: 500; }
+  .compare-head-techla { color: var(--accent-primary) !important; background: rgba(212,165,116,0.04); }
+  .compare-criterion { color: var(--text-secondary); font-weight: 500; }
+  .compare-secretaria { color: var(--text-muted); }
+  .compare-techla { color: var(--text-primary); background: rgba(212,165,116,0.03); font-weight: 500; }
+  .check { display: inline-flex; align-items: center; gap: 8px; }
+  .check-icon { color: var(--accent-success); flex-shrink: 0; }
+  .x-icon { color: var(--text-faint); flex-shrink: 0; }
+  @media (max-width: 720px) {
+    .compare-row { grid-template-columns: 1fr 1fr; }
+    .compare-row > div:first-child { grid-column: 1 / -1; color: var(--accent-primary); font-weight: 500; padding-bottom: 8px; }
+    .compare-row.head > div:first-child { display: none; }
+  }
+  .compare-closing { text-align: center; margin-top: 56px; }
+  .compare-closing-text { font-family: var(--font-display); font-style: italic; font-size: clamp(20px, 2.2vw, 28px); font-weight: 500; color: var(--text-primary); margin-bottom: 32px; }
+
+  /* ANTECIP */
+  .antecip { padding: var(--section-padding-y) 0; background: var(--bg-base); position: relative; overflow: hidden; }
+  .antecip::before { content: ''; position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(212,165,116,0.04), transparent 60%); pointer-events: none; z-index: 0; }
+  /* Particle field — pontos esparsos, drift lentíssimo */
+  .antecip::after {
+    content: '';
+    position: absolute;
+    inset: -200px 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8% 12%, rgba(245,244,240,0.35), transparent 2px),
+      radial-gradient(1px 1px at 22% 38%, rgba(212,165,116,0.45), transparent 2px),
+      radial-gradient(1.5px 1.5px at 41% 18%, rgba(245,244,240,0.25), transparent 2px),
+      radial-gradient(1px 1px at 58% 52%, rgba(245,244,240,0.30), transparent 2px),
+      radial-gradient(1.5px 1.5px at 73% 28%, rgba(212,165,116,0.35), transparent 2px),
+      radial-gradient(1px 1px at 88% 64%, rgba(245,244,240,0.28), transparent 2px),
+      radial-gradient(1.5px 1.5px at 15% 72%, rgba(245,244,240,0.22), transparent 2px),
+      radial-gradient(1px 1px at 33% 85%, rgba(212,165,116,0.40), transparent 2px),
+      radial-gradient(1.5px 1.5px at 50% 8%, rgba(245,244,240,0.30), transparent 2px),
+      radial-gradient(1px 1px at 67% 92%, rgba(245,244,240,0.20), transparent 2px),
+      radial-gradient(1.5px 1.5px at 80% 80%, rgba(212,165,116,0.30), transparent 2px),
+      radial-gradient(1px 1px at 95% 38%, rgba(245,244,240,0.25), transparent 2px),
+      radial-gradient(1px 1px at 5% 48%, rgba(212,165,116,0.30), transparent 2px),
+      radial-gradient(1.5px 1.5px at 28% 60%, rgba(245,244,240,0.20), transparent 2px),
+      radial-gradient(1px 1px at 47% 30%, rgba(245,244,240,0.28), transparent 2px),
+      radial-gradient(1.5px 1.5px at 62% 70%, rgba(212,165,116,0.32), transparent 2px),
+      radial-gradient(1px 1px at 78% 14%, rgba(245,244,240,0.22), transparent 2px),
+      radial-gradient(1.5px 1.5px at 92% 92%, rgba(245,244,240,0.25), transparent 2px),
+      radial-gradient(1px 1px at 38% 65%, rgba(212,165,116,0.28), transparent 2px),
+      radial-gradient(1.5px 1.5px at 55% 25%, rgba(245,244,240,0.20), transparent 2px);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+    animation: particle-drift 90s linear infinite;
+    will-change: transform;
+  }
+  @keyframes particle-drift {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(0, -120px, 0); }
+  }
+  .antecip .container { position: relative; z-index: 1; }
+  .timeline { position: relative; max-width: 880px; margin: 0 auto; }
+  .timeline::before { content: ''; position: absolute; left: 24px; top: 24px; bottom: 24px; width: 2px; background: linear-gradient(180deg, var(--accent-primary), rgba(212,165,116,0.1)); z-index: 0; }
+  @media (max-width: 640px) { .timeline::before { left: 16px; } }
+  .timeline-step { position: relative; padding-left: 80px; margin-bottom: 64px; z-index: 1; }
+  .timeline-step:last-child { margin-bottom: 0; }
+  @media (max-width: 640px) { .timeline-step { padding-left: 56px; } }
+  .timeline-marker { position: absolute; left: 12px; top: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 0 6px rgba(212,165,116,0.12), 0 0 24px rgba(212,165,116,0.4); z-index: 2; }
+  @media (max-width: 640px) { .timeline-marker { left: 4px; width: 20px; height: 20px; top: 6px; } }
+  .timeline-day { display: inline-block; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 12px; }
+  .timeline-title { font-family: var(--font-display); font-size: clamp(24px, 2.5vw, 36px); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .timeline-title em { font-style: italic; font-weight: 400; color: var(--accent-primary); }
+  .timeline-body { color: var(--text-secondary); font-size: 17px; line-height: 1.6; }
+  .timeline-body p { margin-bottom: 12px; }
+  .timeline-body p:last-child { margin-bottom: 0; }
+  .timeline-body em { font-family: var(--font-display); font-style: italic; color: var(--accent-primary); font-weight: 400; }
+  .antecip-closing { text-align: center; margin-top: 96px; font-family: var(--font-display); font-style: italic; font-size: clamp(24px, 3vw, 36px); font-weight: 500; line-height: 1.3; color: var(--text-primary); }
+  .antecip-closing strong { display: block; color: var(--accent-primary); font-weight: 500; margin-top: 8px; }
+
+  /* GUARANTEE */
+  .guarantee {
+    padding: var(--section-padding-y) 0;
+    border-top: 1px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+  }
+  /* Top-down spotlight — "palco iluminado" */
+  .guarantee::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse at top, rgba(212, 165, 116, 0.18), transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .guarantee::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse at top, rgba(245, 244, 240, 0.04), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .guarantee .container { position: relative; z-index: 1; }
+  .guarantee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 96px; }
+  @media (max-width: 768px) { .guarantee-grid { grid-template-columns: 1fr; } }
+  /* Glass cards — flutuando sobre o spotlight */
+  .guarantee-card {
+    background: rgba(19, 19, 22, 0.55);
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-radius: 20px;
+    padding: 48px;
+    box-shadow:
+      0 24px 64px -16px rgba(0, 0, 0, 0.5),
+      0 0 64px rgba(212, 165, 116, 0.08),
+      inset 0 1px 0 rgba(245, 244, 240, 0.06);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    position: relative;
+    overflow: hidden;
+    transition: transform 360ms cubic-bezier(0.4, 0, 0.2, 1), border-color 360ms ease;
+  }
+  .guarantee-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 165, 116, 0.45);
+  }
+  .guarantee-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .guarantee-seal { position: relative; z-index: 1; display: inline-flex; align-items: baseline; gap: 8px; margin-bottom: 24px; }
+  .guarantee-num { font-family: var(--font-display); font-size: clamp(60px, 7vw, 88px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--accent-primary); font-feature-settings: 'tnum' on; }
+  .guarantee-unit { font-family: var(--font-display); font-size: 24px; font-weight: 400; color: var(--text-secondary); font-style: italic; }
+  .guarantee-title { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 28px); font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 16px; position: relative; z-index: 1; }
+  .guarantee-body { color: var(--text-secondary); font-size: 15px; line-height: 1.6; position: relative; z-index: 1; }
+  .guarantee-body p { margin-bottom: 10px; }
+  .guarantee-body p:last-child { margin-bottom: 0; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 768px) { .steps { grid-template-columns: 1fr; gap: 40px; } }
+  .step { position: relative; }
+  .step-num { font-family: var(--font-display); font-size: clamp(56px, 6vw, 80px); font-weight: 500; line-height: 0.9; letter-spacing: -0.04em; color: var(--accent-primary); margin-bottom: 20px; font-feature-settings: 'tnum' on; opacity: 0.85; }
+  .step-title { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.015em; }
+  .step-body { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
+
+  /* FINAL */
+  .final { padding: var(--section-padding-y) 0; background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-deep) 100%); border-top: 1px solid var(--border-subtle); }
+  .final-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; }
+  @media (max-width: 960px) { .final-grid { grid-template-columns: 1fr; gap: 64px; } }
+  .form-block { background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 20px; padding: 40px; }
+  .form-row { margin-bottom: 20px; }
+  .form-row:last-of-type { margin-bottom: 28px; }
+  .label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 8px; }
+  .label .req { color: var(--accent-primary); }
+  .input, .select { width: 100%; background: var(--bg-base); border: 1px solid var(--border-default); border-radius: 10px; padding: 14px 16px; color: var(--text-primary); font-family: var(--font-body); font-size: 15px; transition: all 200ms ease; }
+  .input::placeholder { color: var(--text-faint); }
+  .input:focus, .select:focus { outline: none; border-color: var(--accent-primary); background: var(--bg-overlay); box-shadow: 0 0 0 4px rgba(212,165,116,0.08); }
+  .select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B8B93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+  .form-block .btn-primary { width: 100%; padding: 16px 24px; font-size: 15px; }
+  .form-commit { margin-top: 14px; font-size: 12px; color: var(--text-muted); line-height: 1.5; text-align: center; }
+
+  .form-success { text-align: center; padding: 40px 20px; }
+  .form-success-title { font-family: var(--font-display); font-size: 32px; font-weight: 500; line-height: 1.2; margin-bottom: 16px; }
+  .form-success-title em { font-style: italic; color: var(--accent-primary); font-weight: 400; }
+  .form-success-body { color: var(--text-secondary); font-size: 16px; line-height: 1.6; max-width: 440px; margin: 0 auto; }
+
+  .faq-block { display: flex; flex-direction: column; gap: 8px; }
+  .faq-block h3 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .faq-block h3 em { font-style: italic; color: var(--accent-primary); font-weight: 400; }
+  .faq-item { border-bottom: 1px solid var(--border-subtle); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { width: 100%; background: transparent; border: none; color: var(--text-primary); font-family: var(--font-display); font-size: 18px; font-weight: 500; text-align: left; padding: 20px 36px 20px 0; cursor: pointer; position: relative; transition: color 200ms ease; letter-spacing: -0.01em; }
+  .faq-q:hover { color: var(--accent-primary); }
+  .faq-q::after { content: '+'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-body); font-weight: 400; font-size: 22px; color: var(--accent-primary); transition: transform 240ms ease; }
+  .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 320ms cubic-bezier(0.4,0,0.2,1); }
+  .faq-item.open .faq-a { max-height: 600px; }
+  .faq-a-inner { padding: 0 0 24px 0; color: var(--text-secondary); font-size: 15px; line-height: 1.65; }
+  .faq-a-inner p { margin-bottom: 10px; }
+  .faq-a-inner p:last-child { margin-bottom: 0; }
+  .faq-a-inner strong { color: var(--text-primary); font-weight: 500; }
+
+  /* FOOTER */
+  footer { padding: 64px 0 32px; border-top: 1px solid var(--border-subtle); background: var(--bg-deep); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .footer-brand .brand { margin-bottom: 12px; }
+  .footer-tag { color: var(--text-muted); font-size: 14px; max-width: 360px; line-height: 1.5; }
+  .footer-col h4 { font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; color: var(--text-muted); font-size: 14px; margin-bottom: 10px; transition: color 200ms ease; }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid var(--border-subtle); font-size: 12px; color: var(--text-muted); gap: 16px; flex-wrap: wrap; }
+  .footer-whats { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-primary); }
+  .footer-whats:hover { color: var(--accent-primary-hover); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+<nav class="topnav" aria-label="Navegação principal">
+  <div class="container nav-inner">
+    <a href="#" class="brand" aria-label="Techla, página inicial">Techla<span class="brand-dot">.</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="#solucao">Como funciona</a>
+      <a class="nav-link" href="#garantia">Garantia</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link nav-cta" href="#aplicar">Aplicar</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow dotted">Para clínicas de estética com 2-3 funcionários</span>
+      <h1 id="hero-title" class="headline">
+        A IA que sua clínica precisa para nunca mais perder uma cliente <em>enquanto você dorme</em>.
+      </h1>
+      <p class="sub">
+        Agente SDR no WhatsApp 24/7, CRM, recuperação de no-show e reativação de base — entregues prontos em 14 dias. Garantia de 30 dias money-back.
+      </p>
+      <form id="hero-form" class="hero-form" aria-label="Aplicar para diagnóstico">
+        <div class="input-inline">
+          <input id="hero-whatsapp" type="tel" placeholder="WhatsApp da clínica (com DDD)" autocomplete="tel" inputmode="tel" required aria-label="WhatsApp da clínica" />
+          <button type="submit">
+            Quero meu diagnóstico <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <div class="form-hint">
+          Sem custo. Sem compromisso. Apenas se fizer sentido pra sua clínica.
+        </div>
+      </form>
+      <div class="hero-trust" aria-label="Garantias">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          14 dias para go-live
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          30 dias money-back
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Atende em pt-BR natural
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup" aria-hidden="true">
+      <div class="mockup-inner">
+        <div class="mockup-chrome">
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+        </div>
+        <div class="mockup-tabs">
+          <div class="mockup-tab active">WhatsApp · Camila S.</div>
+          <div class="mockup-tab">CRM</div>
+          <div class="mockup-tab">Métricas</div>
+        </div>
+        <div class="chat">
+          <div class="chat-msg them">Oi! Vocês fazem harmonização orofacial?</div>
+          <div class="chat-time">23:47</div>
+          <div class="chat-msg us">Olá, Camila 💛 Faço, sim. A gente trabalha com bichectomia, preenchimento labial, mandibular e bioestimulador. Posso te explicar como funciona a avaliação?</div>
+          <div class="chat-time">23:47 · IA Techla</div>
+          <div class="chat-msg them">Pode! E o valor de uma avaliação?</div>
+          <div class="chat-msg us">A avaliação é gratuita — 30 minutos pra entender o que você quer e desenhar um protocolo. Tenho terça às 14h ou quinta às 10h dessa semana. Qual fica melhor?</div>
+          <div class="chat-typing">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+        <div class="mockup-meta">
+          <div class="meta-item"><span class="meta-label">Hoje</span><span class="meta-value">12 leads</span></div>
+          <div class="meta-item"><span class="meta-label">Qualificados</span><span class="meta-value">8</span></div>
+          <div class="meta-item"><span class="meta-label">Agendados</span><span class="meta-value win">5</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGITATION -->
+<section class="agit" aria-labelledby="agit-title">
+  <div class="container">
+    <header class="agit-head">
+      <span class="eyebrow">O ralo invisível</span>
+      <h2 id="agit-title" class="agit-title">Todo dia, sua clínica perde dinheiro <em>invisível</em>.</h2>
+      <p class="agit-lead">Não é sobre vender mais. É sobre parar de perder o que já é seu.</p>
+    </header>
+
+    <div class="agit-grid">
+      <div class="loss-block">
+        <div class="loss-value">R$ 8.000</div>
+        <div class="loss-cap">por mês somem em leads que chegam às 22h e nunca são respondidos.</div>
+        <div class="loss-quote">
+          "Se a clínica leva horas para responder, o paciente esfria."
+          <span class="loss-source">Valentins Digital, 2024</span>
+        </div>
+      </div>
+      <div class="loss-block">
+        <div class="loss-value">R$ 12.000</div>
+        <div class="loss-cap">evaporam em no-show. <em>Falta dói no caixa e na agenda.</em></div>
+        <div class="loss-quote">
+          1 em cada 3 clínicas brasileiras perde mais de 10% das consultas marcadas.
+          <span class="loss-source">Panorama Clínicas 2026 · n=639</span>
+        </div>
+      </div>
+      <div class="loss-block">
+        <div class="loss-value">R$ 6.000</div>
+        <div class="loss-cap">estão parados na sua base de WhatsApp inativa.</div>
+        <div class="loss-quote">
+          Cliente que sumiu não é destino — é retorno que ninguém marcou.
+          <span class="loss-source">Vocabulário do nicho, adaptado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="agit-anchor">
+      <div class="anchor-inner">
+        <div class="anchor-num">21<small>×</small></div>
+        <div>
+          <div class="anchor-text">
+            Responder um lead em 5 minutos te dá <em>21x mais chance</em> de fechar venda do que responder em 30.
+          </div>
+          <div class="anchor-source">MIT Lead Response Study · Harvard Business Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" aria-labelledby="calc-title">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">A conta</span>
+      <h2 id="calc-title" class="section-title">Faça a conta. Quanto sua clínica perde <em>agora</em>?</h2>
+      <p class="section-lead">Use os sliders abaixo com os números reais da sua clínica. O cálculo é conservador.</p>
+    </header>
+
+    <div class="calc">
+      <div class="calc-inputs">
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Leads por mês</span>
+            <span class="calc-input-value" id="leads-v">150</span>
+          </div>
+          <input type="range" class="slider" id="leads" min="50" max="500" step="10" value="150" aria-label="Leads recebidos por mês" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Ticket médio</span>
+            <span class="calc-input-value" id="ticket-v">R$ 1.200</span>
+          </div>
+          <input type="range" class="slider" id="ticket" min="300" max="3000" step="50" value="1200" aria-label="Ticket médio por procedimento" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">No-show atual</span>
+            <span class="calc-input-value" id="noshow-v">25%</span>
+          </div>
+          <input type="range" class="slider" id="noshow" min="10" max="40" step="1" value="25" aria-label="Taxa de no-show" />
+        </div>
+        <div class="calc-input">
+          <div class="calc-input-head">
+            <span class="calc-input-label">Base inativa</span>
+            <span class="calc-input-value" id="base-v">1.500</span>
+          </div>
+          <input type="range" class="slider" id="base" min="200" max="3000" step="50" value="1500" aria-label="Tamanho da base inativa" />
+        </div>
+      </div>
+      <div class="calc-output">
+        <div class="calc-output-inner">
+          <div class="calc-output-label">Sua clínica perde, por mês:</div>
+          <div class="calc-output-loss" id="loss">R$ 0</div>
+          <div class="calc-output-label">Recuperando 30% com Techla:</div>
+          <div class="calc-output-win" id="win">+R$ 0 / mês</div>
+          <div class="calc-output-fineprint">Cenário conservador. Cálculo já desconta a mensalidade de R$ 897.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-cta-wrap">
+      <a href="#aplicar" class="btn btn-primary">
+        Quero parar de perder esse dinheiro <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <p class="calc-transition">Você acabou de calcular o tamanho do ralo. Agora vamos mostrar como fechá-lo.</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solucao" aria-labelledby="sol-title">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">A operação</span>
+      <h2 id="sol-title" class="section-title">Não é chatbot. É <em>operação</em>.</h2>
+      <p class="section-lead">A Techla monta toda a estrutura comercial da sua clínica com IA. Em 14 dias.</p>
+    </header>
+
+    <div class="bento">
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div class="bento-card-title">Agente SDR no WhatsApp 24/7</div>
+        <div class="bento-card-body">Atende, qualifica e agenda em português natural — treinado com o vocabulário da sua clínica. Não parece robô: acolhe.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="bento-card-title">Agendamento integrado</div>
+        <div class="bento-card-body">A agenda fecha sozinha. Lembrete automático 24h antes e 2h antes — no-show despenca.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="18" rx="1"/><rect x="11" y="3" width="6" height="11" rx="1"/><rect x="19" y="3" width="2" height="7" rx="1" opacity="0.6"/></svg>
+        <div class="bento-card-title">CRM com pipeline visual</div>
+        <div class="bento-card-body">Cada lead no funil: novo → qualificado → agendado → fechado. Sem planilha, sem WhatsApp Business bagunçado.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        <div class="bento-card-title">Follow-up que não esquece</div>
+        <div class="bento-card-body">Lead que não fechou recebe sequência de 3 a 5 toques em horários estratégicos. A IA não esquece.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div class="bento-card-title">Reativação de base inativa</div>
+        <div class="bento-card-body">Sua base de 1.500 contatas adormecidas vira receita. Campanha mensal com mensagem personalizada por perfil.</div>
+      </div>
+      <div class="bento-card">
+        <svg class="bento-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        <div class="bento-card-title">Relatório semanal</div>
+        <div class="bento-card-body">Leads atendidos, taxa de qualificação, agendamentos, no-show recuperado. Toda segunda no seu WhatsApp.</div>
+      </div>
+    </div>
+
+    <div class="calc-cta-wrap" style="margin-top: 64px;">
+      <a href="#aplicar" class="btn btn-primary">
+        Ver como tudo isso funciona junto <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-section" aria-labelledby="comp-title">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">A matemática</span>
+      <h2 id="comp-title" class="section-title">Pelo preço de <em>meia secretária</em>, sua clínica ganha uma operação inteira.</h2>
+      <p class="section-lead">Comparado a contratar mais uma secretária CLT no interior de MG.</p>
+    </header>
+
+    <div class="compare" role="table" aria-label="Comparativo Techla versus secretária CLT">
+      <div class="compare-row head" role="row">
+        <div role="columnheader">Critério</div>
+        <div role="columnheader">Secretária CLT</div>
+        <div role="columnheader" class="compare-head-techla">Techla</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Custo mensal real</div>
+        <div class="compare-secretaria" role="cell">R$ 2.400 – R$ 2.800</div>
+        <div class="compare-techla" role="cell">R$ 897</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Horário de trabalho</div>
+        <div class="compare-secretaria" role="cell">8h/dia, seg–sex</div>
+        <div class="compare-techla" role="cell">24/7, todos os dias</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Tempo de resposta</div>
+        <div class="compare-secretaria" role="cell">Minutos a horas</div>
+        <div class="compare-techla" role="cell">Segundos</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Pronta para operar em</div>
+        <div class="compare-secretaria" role="cell">30 a 90 dias</div>
+        <div class="compare-techla" role="cell">14 dias</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Férias, faltas e atestados</div>
+        <div class="compare-secretaria" role="cell">Custo extra ou clínica para</div>
+        <div class="compare-techla" role="cell">Não existe</div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Esquece follow-up</div>
+        <div class="compare-secretaria" role="cell">
+          <span class="check"><svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Acontece toda semana</span>
+        </div>
+        <div class="compare-techla" role="cell">
+          <span class="check"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Não esquece</span>
+        </div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Dobrar volume sem custo</div>
+        <div class="compare-secretaria" role="cell">
+          <span class="check"><svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Contratar mais uma</span>
+        </div>
+        <div class="compare-techla" role="cell">
+          <span class="check"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Sem custo adicional</span>
+        </div>
+      </div>
+      <div class="compare-row" role="row">
+        <div class="compare-criterion" role="cell">Reativa base inativa</div>
+        <div class="compare-secretaria" role="cell">
+          <span class="check"><svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Não tem tempo</span>
+        </div>
+        <div class="compare-techla" role="cell">
+          <span class="check"><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Automaticamente</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="compare-closing">
+      <div class="compare-closing-text">A conta não fecha pro outro lado.</div>
+      <a href="#aplicar" class="btn btn-primary">
+        Faz mais sentido contratar a Techla <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ANTECIPATION -->
+<section class="antecip" aria-labelledby="ant-title">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">60 dias depois</span>
+      <h2 id="ant-title" class="section-title">60 dias depois, sua clínica é <em>outra</em>.</h2>
+      <p class="section-lead">Não na receita. Na sensação. (Na receita também — mas a sensação muda primeiro.)</p>
+    </header>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <span class="timeline-day">Dia 14</span>
+        <h3 class="timeline-title">Go-live</h3>
+        <div class="timeline-body">
+          <p>O agente entra no ar. Você dorme tranquila pela primeira vez em meses.</p>
+          <p>O lead que chegou às 23h47 já foi atendido, qualificado e tem horário pra terça-feira. Sua secretária acordou e encontrou a agenda da semana fechada.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <span class="timeline-day">Dia 30</span>
+        <h3 class="timeline-title">Primeiro relatório</h3>
+        <div class="timeline-body">
+          <p>87 leads atendidos. 41 qualificados. 18 agendadas. 3 no-shows evitados.</p>
+          <p>Sua secretária está focada no que importa: receber bem quem chega. Você ganhou tempo de volta — tempo de atender com calma, tempo de planejar, tempo de respirar.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <span class="timeline-day">Dia 60</span>
+        <h3 class="timeline-title">Sua clínica é <em>outra</em></h3>
+        <div class="timeline-body">
+          <p>Você fatura 30 a 40% mais sem ter contratado ninguém. Sua base inativa virou receita. Sua agenda fecha sozinha.</p>
+          <p>E pela primeira vez em anos, você está pensando em abrir a <em>segunda unidade</em> — porque agora cresceu sem dor de gestão.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="antecip-closing">
+      Essa é a clínica que a Techla constrói.
+      <strong>Em 60 dias.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee" id="garantia" aria-labelledby="gar-title">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">Sem risco</span>
+      <h2 id="gar-title" class="section-title">Se não funcionar, <em>você não paga</em>.</h2>
+      <p class="section-lead">Duas garantias. Porque a gente tem certeza que funciona.</p>
+    </header>
+
+    <div class="guarantee-grid">
+      <div class="guarantee-card">
+        <div class="guarantee-seal">
+          <span class="guarantee-num">30</span>
+          <span class="guarantee-unit">dias</span>
+        </div>
+        <h3 class="guarantee-title">30 dias ou seu dinheiro de volta.</h3>
+        <div class="guarantee-body">
+          <p>Implementamos sua operação completa em 14 dias. Você tem 30 dias corridos a partir do go-live para testar.</p>
+          <p>Se não estiver satisfeita, devolvemos 100% — setup e mensalidade.</p>
+        </div>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-seal">
+          <span class="guarantee-num">90</span>
+          <span class="guarantee-unit">dias</span>
+        </div>
+        <h3 class="guarantee-title">90 dias ou 2 meses grátis.</h3>
+        <div class="guarantee-body">
+          <p>Se em 90 dias a operação não recuperar pelo menos 3x o valor da mensalidade em receita atribuível, você ganha 2 meses adicionais grátis.</p>
+          <p>Medido pelo CRM da própria operação. Métrica transparente, auditável.</p>
+        </div>
+      </div>
+    </div>
+
+    <header class="section-head" style="margin-top: 96px; margin-bottom: 64px;">
+      <span class="eyebrow">Como começar</span>
+      <h2 class="section-title" style="font-size: clamp(28px, 3vw, 40px);">Três passos. <em>Catorze dias.</em></h2>
+    </header>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Aplicação</h3>
+        <div class="step-body">Você preenche o formulário. A gente agenda uma call de diagnóstico de 30 minutos — gratuita, sem compromisso. Se a Techla não fizer sentido pra sua clínica, a gente fala isso na call.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Setup em 14 dias</h3>
+        <div class="step-body">A gente faz tudo: agente treinado com o vocabulário da sua clínica, CRM configurado, WhatsApp Business conectado, integrações testadas. Você só precisa aprovar.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Go-live + acompanhamento</h3>
+        <div class="step-body">A operação entra no ar. Revisão semanal nos primeiros 90 dias. Suporte direto pelo WhatsApp — sem fila, sem ticket, sem URA.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA + FAQ -->
+<section class="final" id="aplicar" aria-labelledby="final-title">
+  <div class="container">
+    <header class="section-head left">
+      <span class="eyebrow">Próximo passo</span>
+      <h2 id="final-title" class="section-title">Sua clínica pode atender melhor <em>hoje</em>. Decida agora.</h2>
+      <p class="section-lead">Preencha abaixo. Em até 24h, a gente entra em contato pelo WhatsApp para agendar seu diagnóstico gratuito.</p>
+    </header>
+
+    <div class="final-grid">
+      <div class="form-block" id="form-block">
+        <form id="apply-form" aria-label="Aplicar para diagnóstico gratuito">
+          <div class="form-row">
+            <label class="label" for="f-name">Nome <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" class="input" placeholder="Seu nome completo" required autocomplete="name" />
+          </div>
+          <div class="form-row">
+            <label class="label" for="f-email">E-mail <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" class="input" placeholder="voce@suaclinica.com.br" required autocomplete="email" />
+          </div>
+          <div class="form-row">
+            <label class="label" for="f-whats">WhatsApp da clínica <span class="req">*</span></label>
+            <input id="f-whats" name="whatsapp" type="tel" class="input" placeholder="(37) 9 9999-9999" required autocomplete="tel" inputmode="tel" />
+          </div>
+          <div class="form-row">
+            <label class="label" for="f-clinic">Nome da clínica <span class="req">*</span></label>
+            <input id="f-clinic" name="clinic" type="text" class="input" placeholder="Nome da sua clínica" required />
+          </div>
+          <div class="form-row">
+            <label class="label" for="f-fat">Faturamento aproximado <span class="req">*</span></label>
+            <select id="f-fat" name="revenue" class="select" required>
+              <option value="">Selecione uma faixa</option>
+              <option value="ate-30">Até R$ 30 mil/mês</option>
+              <option value="30-50">R$ 30 a 50 mil/mês</option>
+              <option value="50-100">R$ 50 a 100 mil/mês</option>
+              <option value="100-mais">Acima de R$ 100 mil/mês</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="label" for="f-pain">Principal dor hoje <span class="req">*</span></label>
+            <select id="f-pain" name="pain" class="select" required>
+              <option value="">Selecione</option>
+              <option>Perco lead à noite e fim de semana</option>
+              <option>Tenho muito no-show</option>
+              <option>Secretária sobrecarregada, não vende</option>
+              <option>Base de WhatsApp parada</option>
+              <option>Não consigo crescer sem contratar mais</option>
+              <option>Outra</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Quero meu diagnóstico gratuito <span class="arrow" aria-hidden="true">→</span>
+          </button>
+          <div class="form-commit">
+            Sem custo. Sem compromisso. Se a Techla não fizer sentido pra sua clínica, a gente fala isso na call.
+          </div>
+        </form>
+        <div id="form-success" class="form-success" hidden>
+          <div class="form-success-title">Recebemos <em>sua aplicação</em>.</div>
+          <p class="form-success-body">Em até 24h, a gente entra em contato pelo WhatsApp pra agendar seu diagnóstico — 30 minutos, gratuitos, sem compromisso.</p>
+        </div>
+      </div>
+
+      <div class="faq-block" id="faq">
+        <h3>Antes de aplicar, talvez você esteja se <em>perguntando</em>:</h3>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Vai parecer robô?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Não. O agente é treinado com o vocabulário e o tom da sua clínica, fala em português natural e foi desenhado para <strong>acolher</strong> — não para "responder rápido". Na call de diagnóstico você vê uma demo real e julga você mesma.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Funciona com o WhatsApp que eu já uso?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Sim. A gente conecta no número que sua clínica já tem via WhatsApp Business API oficial. Você não muda nada — a cliente continua mandando mensagem pro mesmo número.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">E se eu quiser cancelar?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>30 dias de aviso, sem multa. Os dados — conversas, base de clientes, métricas — são <strong>seus</strong>. Exportamos tudo em 7 dias. Sem lock-in.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Quanto tempo demora pra ficar pronto?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>14 dias úteis. Em duas semanas sua operação está no ar. A gente faz a parte técnica inteira — você só aprova o tom do agente e as regras.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Atendem clínica em qualquer lugar do Brasil?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Sim. Mas começamos com clínicas de Divinópolis e região — para quem está perto, dá pra fazer reunião presencial e o suporte é ainda mais próximo. Fora daqui, atendemos 100% remoto pelo WhatsApp.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Por que vocês são diferentes de outros chatbots?</button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Porque a gente <strong>não vende chatbot</strong>.</p>
+            <p>A Techla é uma operação inteira pronta: agente + CRM + follow-up + reativação + relatórios. E somos especializados em clínica de estética — não generalistas que atendem qualquer negócio.</p>
+            <p>Você compra resultado, não ferramenta.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">Techla<span class="brand-dot">.</span></div>
+        <p class="footer-tag">Operação comercial com IA para clínicas de estética. Baseada em Divinópolis/MG, atendendo o Brasil inteiro.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Página</h4>
+        <a href="#solucao">Como funciona</a>
+        <a href="#garantia">Garantia</a>
+        <a href="#faq">FAQ</a>
+        <a href="#aplicar">Aplicar</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a class="footer-whats" href="https://wa.me/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Falar direto no WhatsApp
+        </a>
+        <a href="mailto:contato@techla.com.br">contato@techla.com.br</a>
+        <a href="#">Divinópolis · Minas Gerais</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Techla. Operação comercial com IA.</div>
+      <div>Construído com cuidado em Divinópolis/MG.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // CALCULATOR
+  const fmtBRL = (n) => 'R$ ' + Math.round(n).toLocaleString('pt-BR');
+  const fmtInt = (n) => (+n).toLocaleString('pt-BR');
+
+  const inputs = {
+    leads: document.getElementById('leads'),
+    ticket: document.getElementById('ticket'),
+    noshow: document.getElementById('noshow'),
+    base: document.getElementById('base'),
+  };
+  const vd = {
+    leads: document.getElementById('leads-v'),
+    ticket: document.getElementById('ticket-v'),
+    noshow: document.getElementById('noshow-v'),
+    base: document.getElementById('base-v'),
+  };
+  const lossEl = document.getElementById('loss');
+  const winEl = document.getElementById('win');
+
+  function calc() {
+    const leads = +inputs.leads.value;
+    const ticket = +inputs.ticket.value;
+    const noshow = +inputs.noshow.value / 100;
+    const base = +inputs.base.value;
+    const leadsPerdidos = 0.30 * leads * 0.15 * ticket;
+    const conversaoExtra = (leads * 0.70) * 0.15 * ticket;
+    const noshowEvitavel = (leads * 0.30) * (noshow / 2) * ticket;
+    const reativacao = base * 0.03 * ticket / 3;
+    const perdaTotal = leadsPerdidos + conversaoExtra + noshowEvitavel + reativacao;
+    const ganho30 = perdaTotal * 0.30 - 897;
+    lossEl.textContent = fmtBRL(perdaTotal);
+    winEl.textContent = '+' + fmtBRL(Math.max(0, ganho30)) + ' / mês';
+  }
+
+  for (const k in inputs) {
+    inputs[k].addEventListener('input', () => {
+      if (k === 'leads') vd.leads.textContent = fmtInt(inputs.leads.value);
+      if (k === 'ticket') vd.ticket.textContent = fmtBRL(inputs.ticket.value);
+      if (k === 'noshow') vd.noshow.textContent = inputs.noshow.value + '%';
+      if (k === 'base') vd.base.textContent = fmtInt(inputs.base.value);
+      calc();
+    });
+  }
+  calc();
+
+  // FAQ ACCORDION
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  // HERO FORM → SCROLL TO APPLY
+  document.getElementById('hero-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const whats = document.getElementById('hero-whatsapp').value;
+    document.getElementById('aplicar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      if (whats) document.getElementById('f-whats').value = whats;
+      document.getElementById('f-name').focus();
+    }, 600);
+  });
+
+  // FINAL FORM SUBMIT (placeholder — integrar com backend depois)
+  document.getElementById('apply-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const payload = Object.fromEntries(data.entries());
+    // TODO: enviar payload pra webhook do TomikOS / endpoint da Techla
+    void payload;
+    document.getElementById('apply-form').hidden = true;
+    document.getElementById('form-success').hidden = false;
+    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+
+</body>
+</html>

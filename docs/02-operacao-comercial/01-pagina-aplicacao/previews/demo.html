@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Techla — Preview do Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --bg-base: #0A0A0B;
+    --bg-elevated: #131316;
+    --bg-overlay: #1C1C21;
+
+    --text-primary: #F5F4F0;
+    --text-secondary: #8B8B93;
+    --text-muted: rgba(245, 244, 240, 0.5);
+    --text-faint: rgba(245, 244, 240, 0.3);
+
+    --accent-primary: #D4A574;
+    --accent-primary-hover: #E0B687;
+    --accent-secondary: #F5B7B1;
+    --accent-success: #7DD3A8;
+
+    --border-subtle: rgba(245, 244, 240, 0.06);
+    --border-default: rgba(245, 244, 240, 0.08);
+    --border-strong: rgba(212, 165, 116, 0.18);
+    --border-emphasis: rgba(212, 165, 116, 0.4);
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+
+    --section-padding-y: clamp(80px, 12vh, 160px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: var(--accent-primary); color: var(--bg-base); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 10, 11, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 18px 0;
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .brand-dot { color: var(--accent-primary); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 200ms ease;
+  }
+  .nav-link:hover { color: var(--text-primary); }
+  .nav-cta {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+  .nav-cta:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-elevated);
+  }
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    padding: clamp(80px, 14vh, 160px) 0 clamp(80px, 12vh, 140px);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-bg::before,
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .hero-bg::before {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.22), transparent 70%);
+    top: -200px;
+    left: -100px;
+    animation: drift1 28s ease-in-out infinite alternate;
+  }
+  .hero-bg::after {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 183, 177, 0.15), transparent 70%);
+    bottom: -150px;
+    right: -100px;
+    animation: drift2 32s ease-in-out infinite alternate;
+  }
+  @keyframes drift1 {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(80px, 60px, 0) scale(1.15); }
+  }
+  @keyframes drift2 {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(-60px, -80px, 0) scale(1.2); }
+  }
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 700ms 200ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 12px var(--accent-primary);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+  }
+
+  h1.headline {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6.4vw, 88px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 800ms 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  h1.headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-primary);
+  }
+
+  .sub {
+    font-size: clamp(16px, 1.2vw, 19px);
+    color: var(--text-secondary);
+    line-height: 1.55;
+    max-width: 520px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 800ms 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .hero-form {
+    opacity: 0;
+    animation: fadeUp 800ms 650ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    max-width: 480px;
+  }
+  .input-inline {
+    display: flex;
+    gap: 6px;
+    background: rgba(19, 19, 22, 0.8);
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 6px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 240ms ease, box-shadow 240ms ease;
+  }
+  .input-inline:focus-within {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.08), 0 0 32px rgba(212, 165, 116, 0.12);
+  }
+  .input-inline input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+  .input-inline input::placeholder {
+    color: var(--text-faint);
+  }
+  .input-inline button {
+    background: var(--accent-primary);
+    color: var(--bg-base);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .input-inline button:hover {
+    background: var(--accent-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 0 32px rgba(212, 165, 116, 0.25);
+  }
+  .input-inline button .arrow {
+    transition: transform 240ms ease;
+  }
+  .input-inline button:hover .arrow {
+    transform: translateX(3px);
+  }
+  .form-hint {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 800ms 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .trust-item svg { color: var(--accent-success); }
+
+  /* ===== Mockup ===== */
+  .mockup {
+    opacity: 0;
+    animation: fadeUp 1000ms 600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    perspective: 2000px;
+  }
+  .mockup-inner {
+    position: relative;
+    background: linear-gradient(180deg, rgba(19,19,22,0.95), rgba(10,10,11,0.95));
+    border: 1px solid var(--border-default);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow:
+      0 32px 96px rgba(0, 0, 0, 0.6),
+      0 0 120px rgba(212, 165, 116, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transform: rotateY(-4deg) rotateX(2deg);
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .mockup:hover .mockup-inner {
+    transform: rotateY(-2deg) rotateX(1deg) translateY(-4px);
+  }
+  .mockup-chrome {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding: 0 4px;
+  }
+  .mockup-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--bg-overlay);
+  }
+
+  /* Mockup content — WhatsApp-like + dashboard hint */
+  .mockup-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 8px;
+  }
+  .mockup-tab {
+    flex: 1;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  .mockup-tab.active {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+  .chat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 4px;
+    min-height: 280px;
+  }
+  .chat-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .chat-msg.them {
+    align-self: flex-start;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+  }
+  .chat-msg.us {
+    align-self: flex-end;
+    background: linear-gradient(180deg, #D4A574, #C09558);
+    color: var(--bg-base);
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+  }
+  .chat-time {
+    font-size: 10px;
+    color: var(--text-faint);
+    text-align: right;
+    margin-top: -4px;
+  }
+  .chat-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    align-self: flex-start;
+    background: var(--bg-elevated);
+    padding: 12px 14px;
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+  }
+  .typing-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    animation: typing 1.4s infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30%           { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .mockup-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-size: 11px;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .meta-label {
+    color: var(--text-muted);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .meta-value {
+    color: var(--accent-primary);
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    font-feature-settings: 'tnum' on;
+  }
+  .meta-value.win { color: var(--accent-success); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ AGITATION ============ */
+  .agit {
+    padding: var(--section-padding-y) 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  .agit-head {
+    max-width: 720px;
+    margin-bottom: 80px;
+  }
+  .agit-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .agit-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--accent-primary);
+  }
+  h2.agit-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+  h2.agit-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-primary);
+  }
+  .agit-lead {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .agit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  @media (max-width: 900px) {
+    .agit-grid { grid-template-columns: 1fr; gap: 56px; }
+  }
+
+  .loss-block {
+    border-left: 2px solid var(--border-strong);
+    padding-left: 28px;
+  }
+  .loss-value {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    color: var(--accent-secondary);
+    font-feature-settings: 'tnum' on;
+  }
+  .loss-cap {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .loss-quote {
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-default);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .loss-source {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .agit-anchor {
+    margin-top: 96px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .agit-anchor::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .anchor-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .agit-anchor { padding: 40px 28px; }
+    .anchor-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+  .anchor-num {
+    font-family: var(--font-display);
+    font-size: clamp(80px, 10vw, 140px);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--accent-primary);
+    font-feature-settings: 'tnum' on;
+  }
+  .anchor-num small {
+    font-size: 0.5em;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+  .anchor-text {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .anchor-text em {
+    font-style: italic;
+    color: var(--accent-primary);
+    font-weight: 400;
+  }
+  .anchor-source {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ============ CTA-strip ============ */
+  .cta-strip {
+    padding: clamp(60px, 8vh, 100px) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 760px;
+    margin: 0 auto 32px;
+  }
+  .cta-headline em {
+    font-style: italic;
+    color: var(--accent-primary);
+    font-weight: 400;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-primary);
+    color: var(--bg-base);
+    padding: 16px 32px;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cta-btn:hover {
+    background: var(--accent-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(212, 165, 116, 0.25);
+  }
+  .cta-btn .arrow { transition: transform 240ms ease; }
+  .cta-btn:hover .arrow { transform: translateX(4px); }
+
+  /* ============ Footer ============ */
+  footer {
+    padding: 48px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* ============ A11y ============ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <div class="container nav-inner">
+    <div class="brand">Techla<span class="brand-dot">.</span></div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Como funciona</a>
+      <a class="nav-link" href="#">Garantia</a>
+      <a class="nav-link" href="#">FAQ</a>
+      <button class="nav-cta">Aplicar</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Para clínicas de estética com 2-3 funcionários</span>
+
+      <h1 class="headline">
+        A IA que sua clínica precisa para nunca mais perder uma cliente <em>enquanto você dorme</em>.
+      </h1>
+
+      <p class="sub">
+        Agente SDR no WhatsApp 24/7, CRM, recuperação de no-show e reativação de base — entregues prontos em 14 dias. Garantia de 30 dias money-back.
+      </p>
+
+      <form class="hero-form" onsubmit="event.preventDefault(); alert('Demo apenas — formulário desativado.')">
+        <div class="input-inline">
+          <input type="tel" placeholder="WhatsApp da clínica (com DDD)" autocomplete="tel" />
+          <button type="submit">
+            Quero meu diagnóstico <span class="arrow">→</span>
+          </button>
+        </div>
+        <div class="form-hint">
+          Sem custo. Sem compromisso. Apenas se fizer sentido pra sua clínica.
+        </div>
+      </form>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          14 dias para go-live
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          30 dias money-back
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Atende em pt-BR natural
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup -->
+    <div class="mockup">
+      <div class="mockup-inner">
+        <div class="mockup-chrome">
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+        </div>
+        <div class="mockup-tabs">
+          <div class="mockup-tab active">WhatsApp · Camila S.</div>
+          <div class="mockup-tab">CRM</div>
+          <div class="mockup-tab">Métricas</div>
+        </div>
+        <div class="chat">
+          <div class="chat-msg them">Oi! Vocês fazem harmonização orofacial?</div>
+          <div class="chat-time">23:47</div>
+          <div class="chat-msg us">Olá, Camila 💛 Faço, sim. A gente trabalha com bichectomia, preenchimento labial, mandibular e bioestimulador. Posso te explicar como funciona a avaliação?</div>
+          <div class="chat-time">23:47 · IA Techla</div>
+          <div class="chat-msg them">Pode! E o valor de uma avaliação?</div>
+          <div class="chat-msg us">A avaliação é gratuita — 30 minutos pra entender o que você quer e desenhar um protocolo. Tenho terça às 14h ou quinta às 10h dessa semana. Qual fica melhor?</div>
+          <div class="chat-typing">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+        <div class="mockup-meta">
+          <div class="meta-item">
+            <span class="meta-label">Hoje</span>
+            <span class="meta-value">12 leads</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Qualificados</span>
+            <span class="meta-value">8</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Agendados</span>
+            <span class="meta-value win">5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AGITATION ========== -->
+<section class="agit">
+  <div class="container">
+    <header class="agit-head">
+      <span class="agit-eyebrow">O ralo invisível</span>
+      <h2 class="agit-title">Todo dia, sua clínica perde dinheiro <em>invisível</em>.</h2>
+      <p class="agit-lead">Não é sobre vender mais. É sobre parar de perder o que já é seu.</p>
+    </header>
+
+    <div class="agit-grid">
+      <div class="loss-block">
+        <div class="loss-value">R$ 8.000</div>
+        <div class="loss-cap">por mês somem em leads que chegam às 22h e nunca são respondidos.</div>
+        <div class="loss-quote">
+          "Se a clínica leva horas para responder, o paciente esfria."
+          <span class="loss-source">Valentins Digital, 2024</span>
+        </div>
+      </div>
+      <div class="loss-block">
+        <div class="loss-value">R$ 12.000</div>
+        <div class="loss-cap">evaporam em no-show. <em>Falta dói no caixa e na agenda.</em></div>
+        <div class="loss-quote">
+          1 em cada 3 clínicas brasileiras perde mais de 10% das consultas marcadas.
+          <span class="loss-source">Panorama Clínicas 2026 · n=639</span>
+        </div>
+      </div>
+      <div class="loss-block">
+        <div class="loss-value">R$ 6.000</div>
+        <div class="loss-cap">estão parados na sua base de WhatsApp inativa.</div>
+        <div class="loss-quote">
+          Cliente que sumiu não é destino — é retorno que ninguém marcou.
+          <span class="loss-source">Vocabulário Clinicorp · adaptado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="agit-anchor">
+      <div class="anchor-inner">
+        <div class="anchor-num">21<small>×</small></div>
+        <div>
+          <div class="anchor-text">
+            Responder um lead em 5 minutos te dá <em>21x mais chance</em> de fechar venda do que responder em 30.
+          </div>
+          <div class="anchor-source">MIT Lead Response Study · Harvard Business Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA STRIP ========== -->
+<section class="cta-strip">
+  <div class="container">
+    <h2 class="cta-headline">
+      Sua clínica pode parar de perder dinheiro <em>hoje à noite</em>.
+    </h2>
+    <a href="#" class="cta-btn">
+      Aplicar para diagnóstico gratuito <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>Techla</strong> · preview do hero · 2026-05-12 · iteração visual em curso
+  </div>
+</footer>
+
+</body>
+</html>
