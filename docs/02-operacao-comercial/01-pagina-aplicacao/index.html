@@ -998,7 +998,7 @@
         <form id="apply-form" aria-label="Aplicar para diagnóstico gratuito">
           <div class="form-row">
             <label class="label" for="f-name">Nome <span class="req">*</span></label>
-            <input id="f-name" name="name" type="text" class="input" placeholder="Seu nome completo" required autocomplete="name" />
+            <input id="f-name" name="nome" type="text" class="input" placeholder="Seu nome completo" required autocomplete="name" />
           </div>
           <div class="form-row">
             <label class="label" for="f-email">E-mail <span class="req">*</span></label>
@@ -1010,21 +1010,21 @@
           </div>
           <div class="form-row">
             <label class="label" for="f-clinic">Nome da clínica <span class="req">*</span></label>
-            <input id="f-clinic" name="clinic" type="text" class="input" placeholder="Nome da sua clínica" required />
+            <input id="f-clinic" name="clinica" type="text" class="input" placeholder="Nome da sua clínica" required />
           </div>
           <div class="form-row">
             <label class="label" for="f-fat">Faturamento aproximado <span class="req">*</span></label>
-            <select id="f-fat" name="revenue" class="select" required>
+            <select id="f-fat" name="faturamento" class="select" required>
               <option value="">Selecione uma faixa</option>
-              <option value="ate-30">Até R$ 30 mil/mês</option>
-              <option value="30-50">R$ 30 a 50 mil/mês</option>
-              <option value="50-100">R$ 50 a 100 mil/mês</option>
-              <option value="100-mais">Acima de R$ 100 mil/mês</option>
+              <option value="Até R$ 30 mil/mês">Até R$ 30 mil/mês</option>
+              <option value="R$ 30 a 50 mil/mês">R$ 30 a 50 mil/mês</option>
+              <option value="R$ 50 a 100 mil/mês">R$ 50 a 100 mil/mês</option>
+              <option value="Acima de R$ 100 mil/mês">Acima de R$ 100 mil/mês</option>
             </select>
           </div>
           <div class="form-row">
             <label class="label" for="f-pain">Principal dor hoje <span class="req">*</span></label>
-            <select id="f-pain" name="pain" class="select" required>
+            <select id="f-pain" name="dor_principal" class="select" required>
               <option value="">Selecione</option>
               <option>Perco lead à noite e fim de semana</option>
               <option>Tenho muito no-show</option>
@@ -1199,16 +1199,50 @@
     }, 600);
   });
 
-  // FINAL FORM SUBMIT (placeholder — integrar com backend depois)
-  document.getElementById('apply-form').addEventListener('submit', (e) => {
+  // FINAL FORM SUBMIT → webhook Supabase (lead capture)
+  const LEAD_WEBHOOK_URL = 'https://qckjiolragbvvpqvfhrj.supabase.co/functions/v1/webhook-lead-capture?t=1294a437cb3240628e7ae11b44b0699bc87c3f28c42e42b19b1e1cd0c5744db618780fb3c72d424b';
+
+  document.getElementById('apply-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
-    const payload = Object.fromEntries(data.entries());
-    // TODO: enviar payload pra webhook do TomikOS / endpoint da Techla
-    void payload;
-    document.getElementById('apply-form').hidden = true;
-    document.getElementById('form-success').hidden = false;
-    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnChildren = Array.from(submitBtn.childNodes);
+
+    const data = new FormData(form);
+    const payload = {
+      nome: (data.get('nome') || '').toString().trim(),
+      email: (data.get('email') || '').toString().trim(),
+      whatsapp: (data.get('whatsapp') || '').toString().trim(),
+      clinica: (data.get('clinica') || '').toString().trim(),
+      faturamento: (data.get('faturamento') || '').toString(),
+      dor_principal: (data.get('dor_principal') || '').toString(),
+      origem: 'techla-landing',
+      pagina: window.location.href,
+      enviado_em: new Date().toISOString()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+
+    try {
+      const res = await fetch(LEAD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('webhook respondeu ' + res.status);
+
+      form.hidden = true;
+      const success = document.getElementById('form-success');
+      success.hidden = false;
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      console.error('[techla] falha ao enviar lead', err);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '';
+      btnChildren.forEach((node) => submitBtn.appendChild(node));
+      alert('Não conseguimos enviar agora. Tente novamente em alguns segundos — ou nos chame direto no WhatsApp.');
+    }
   });
 </script>
 
